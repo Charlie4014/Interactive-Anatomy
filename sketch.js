@@ -12,7 +12,6 @@ const text_display_max_cooldown = 300;
 
 function preload() {
   img = loadImage("https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/IMG_20260601_203749.png");
-
   data = loadJSON("data.json");
 }
 
@@ -20,8 +19,11 @@ function setup() {
   data = Object.values(data);
 
   createCanvas(windowWidth, windowHeight);
-  render_scale = img.width/windowWidth
-  console.log("rs: "+render_scale)
+
+  // FIXED SCALING
+  render_scale = windowWidth / img.width;
+
+  console.log("rs: " + render_scale);
   console.log(img);
   console.log(data);
   create_points();
@@ -75,23 +77,21 @@ function mousePressed() {
     "X " + mouseX / render_scale + " --- " + "Y " + mouseY / render_scale
   );
 
-  // /\/\/\---broken
   if (text_display_cooldown <= 2) {
     text_display.hide();
     text_display.visible = false;
     text_display_cooldown = 1;
   }
-  // \/\/\/---
 }
 
 function text_display_hidden() {}
 
 function render_image(rs) {
+  // FIXED SCALING
   image(img, 0, 0, img.width * rs, img.height * rs);
 }
 
 function setup_text_displays() {
-  // Create the box with two inner elements
   text_display = createDiv(`
   <div id="text_title" style="font-size: 28px; font-weight: bold; margin-bottom: 6px;"></div>
   <div id="text_body" style="font-size: 18px;"></div>
@@ -112,4 +112,3 @@ function setup_text_displays() {
   );
   text_display.style("text-shadow", "0px 2px 3px rgba(0,0,0,0.6)");
 }
-
