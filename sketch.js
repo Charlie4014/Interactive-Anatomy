@@ -44,7 +44,7 @@ function draw() {
 function create_points() {
   button = [];
   let p;
-  for (let i = 1; i < data.points.length; i++) {
+  for (let i = 0; i < data.points.length; i++) {
     p = data.points[i];
     button.push(new_point());
   }
