@@ -93,8 +93,8 @@ function render_image(rs) {
 
 function setup_text_displays() {
   text_display = createDiv(`
-  <div id="text_title" style="font-size: 28px; font-weight: bold; margin-bottom: 6px;"></div>
-  <div id="text_body" style="font-size: 18px;"></div>
+  <div id="text_title" style="font-size: 56px; font-weight: bold; margin-bottom: 6px;"></div>
+  <div id="text_body" style="font-size: 30px;"></div>
 `);
 
   text_display.hide();
