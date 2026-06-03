@@ -1,30 +1,51 @@
-
 {
   "axial_skeleton1": {
-  "image": {
-    "imgID": 0,
-    "imageSource": "https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/coloring_book/axial_skeleton1.png",
-    "imageTitle": "axial_skeleton1"
-  },
-  "points": [
-    {
-      "id": 0,
-      "posX": 508,
-      "posY": 435,
-      "title": "Skull",
-      "description": "The brain bone.",
-      "radius": 20,
-      "zoom": 1
+    "image": {
+      "imgID": 0,
+      "imageSource": "https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/coloring_book/axial_skeleton1.png",
+      "imageTitle": "axial_skeleton1"
     },
-    {
-      "id": 1,
-      "posX": 680,
-      "posY": 1615,
-      "title": "Pelvis",
-      "description": "The pelvis is a compact bony ring that supports the spine, protects organs, and anchors major leg and core muscles for stable movement.",
-      "radius": 20,
-      "zoom": 1
-    }
-  ]
-}
+    "points": [
+      {
+        "title": "Skull",
+        "id": 0,
+        "posX": 508,
+        "posY": 435,
+        "description": "The skull consists of cranial and facial bones that protect the brain, house sensory organs, and provide attachment points for muscles of facial expression and mastication.",
+        "radius": 20,
+        "zoom": 1,
+        "delay": 600
+      },
+      {
+        "title": "Pelvis",
+        "id": 1,
+        "posX": 680,
+        "posY": 1615,
+        "description": "The pelvis is a bony ring formed by the sacrum and hip bones. It transfers weight from the axial skeleton to the lower limbs and protects pelvic and lower abdominal organs.",
+        "radius": 20,
+        "zoom": 1,
+        "delay": 610
+      },
+      {
+        "title": "Ribs",
+        "id": 2,
+        "posX": 370,
+        "posY": 1125,
+        "description": "The ribs form the thoracic cage, protecting the heart and lungs while supporting respiration through movement at the costovertebral and sternocostal joints.",
+        "radius": 20,
+        "zoom": 1,
+        "delay": 630
+      },
+      {
+        "title": "Spine",
+        "id": 3,
+        "posX": 540,
+        "posY": 1333,
+        "description": "The spine is a column of vertebrae that protects the spinal cord, supports body weight, and allows controlled motion through its intervertebral joints and curvatures.",
+        "radius": 20,
+        "zoom": 1,
+        "delay": 580
+      }
+    ]
+  }
 }
