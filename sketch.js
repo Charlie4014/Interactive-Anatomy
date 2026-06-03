@@ -1,6 +1,9 @@
 //
 //
-const version = "pre3"
+
+const version = "pre5";
+const devMode = true;
+const pageID = "axial_skeleton1"
 
 let img;
 let data;
@@ -11,23 +14,16 @@ let render_scale = 0.25;
 const text_display_max_cooldown = 300;
 
 function preload() {
-  img = loadImage("https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/coloring_book/axial_skeleton1.png");
-  data = loadJSON("data.json");
+  data = loadJSON("data.json", () => {
+    data = data[pageID]
+    img = loadImage(data.image.imageSource);
+  });
 }
 
 function setup() {
-  data = Object.values(data);
-
   createCanvas(windowWidth, windowHeight);
-
-  // FIXED SCALING
   render_scale = windowWidth / img.width;
-
-  console.log("rs: " + render_scale);
-  console.log(img);
-  console.log(data);
   create_points();
-
   setup_text_displays();
 }
 
@@ -41,28 +37,34 @@ function draw() {
     text_display.visible = false;
   }
 
-
-  textSize(25)
-  text("version: "+version, 5, height-30)
-  
+  textSize(25);
+  text("version: " + version, 5, height - 30);
 }
 
 function create_points() {
   button = [];
-  for (let i = 0; i < data.length; i++) {
-    let temp = createButton("");
-    temp.position(
-      data[i].posX * render_scale - data[i].radius / 2,
-      data[i].posY * render_scale - data[i].radius / 2
+  let p;
+  for (let i = 1; i < data.points.length; i++) {
+    p = data.points[i];
+    button.push(new_point());
+  }
+
+  function new_point() {
+    let button = createButton("");
+    button.position(
+      p.posX * render_scale - p.radius / 2,
+      p.posY * render_scale - p.radius / 2
     );
-    temp.style("border-radius", "50%");
-    temp.size(data[i].radius, data[i].radius);
-    temp.style("background-color", "blue");
-    temp.style("color", "orange");
-    temp.mousePressed(() => {
-      button_clicked(data[i]);
+    button.style("border-radius", "50%");
+    button.size(p.radius, p.radius);
+    button.style("background-color", "rgb(31,106,247)");
+ //   button.style("color", "rgb(253,193,84)");
+    button.style("border", "2px solid #2704FF");
+    
+    button.mousePressed(() => {
+      button_clicked(p);
     });
-    button.push(temp);
+    return button;
   }
 }
 
@@ -70,29 +72,19 @@ function button_clicked(info) {
   text_display_cooldown = text_display_max_cooldown;
   select("#text_title").html(info.title);
   select("#text_body").html(info.description);
-
   text_display.show();
   text_display.visible = true;
 }
 
-function mousePressed() {}
-
 function mousePressed() {
-  console.log(
-    "X " + mouseX / render_scale + " --- " + "Y " + mouseY / render_scale
-  );
-
-  if (text_display_cooldown <= 2) {
+  if (text_display_cooldown < text_display_max_cooldown) {
     text_display.hide();
     text_display.visible = false;
     text_display_cooldown = 1;
   }
 }
 
-function text_display_hidden() {}
-
 function render_image(rs) {
-  // FIXED SCALING
   image(img, 0, 0, img.width * rs, img.height * rs);
 }
 
@@ -117,3 +109,4 @@ function setup_text_displays() {
   );
   text_display.style("text-shadow", "0px 2px 3px rgba(0,0,0,0.6)");
 }
+
