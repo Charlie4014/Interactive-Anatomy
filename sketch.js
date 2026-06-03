@@ -11,7 +11,7 @@ let render_scale = 0.25;
 const text_display_max_cooldown = 300;
 
 function preload() {
-  img = loadImage("https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/IMG_20260601_203749.png");
+  img = loadImage("https://raw.githubusercontent.com/Charlie4014/Interactive-Anatomy/main/coloring_book/axial_skeleton1.png");
   data = loadJSON("data.json");
 }
 
