@@ -40,6 +40,11 @@ function draw() {
     text_display.hide();
     text_display.visible = false;
   }
+
+
+  textSize(25)
+  text("version: "+version, 5, height-30)
+  
 }
 
 function create_points() {
