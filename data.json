@@ -1,0 +1,29 @@
+[
+  {
+    "id": -1,
+    "posX": 0,
+    "posY": 0,
+    "title": "",
+    "description": "",
+    "radius": 0,
+    "zoom": 1
+  },
+  {
+    "id": 0,
+    "posX": 508,
+    "posY": 435,
+    "title": "Skull",
+    "description": "The brain bone.",
+    "radius": 20,
+    "zoom": 1
+  },
+  {
+    "id": 1,
+    "posX": 680,
+    "posY": 1615,
+    "title": "Pelvis",
+    "description": "The pelvis is a compact bony ring that supports the spine, protects organs, and anchors major leg and core muscles for stable movement.",
+    "radius": 20,
+    "zoom": 1
+  }
+]
