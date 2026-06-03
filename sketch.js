@@ -2,7 +2,7 @@
 //
 
 const version = "pre6";
-const devMode = true;
+const devMode = false;
 const pageID = "axial_skeleton1";
 
 let img;
