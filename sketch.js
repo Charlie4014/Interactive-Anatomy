@@ -19,7 +19,9 @@ function preload() {
 function setup() {
   data = Object.values(data);
 
-  createCanvas(img.width * render_scale, img.height * render_scale);
+  createCanvas(windowWidth, windowHeight);
+  render_scale = img.width/windowWidth
+  console.log("rs: "+render_scale)
   console.log(img);
   console.log(data);
   create_points();
