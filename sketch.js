@@ -1,8 +1,8 @@
 //
 //
 
-const version = "pre5";
-const devMode = false;
+const version = "pre6";
+const devMode = true;
 const pageID = "axial_skeleton1";
 
 let img;
@@ -23,6 +23,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   render_scale = windowWidth / img.width;
+  console.log(render_scale)
   create_points();
   setup_text_displays();
 }
@@ -95,7 +96,7 @@ function render_image(rs) {
 function setup_text_displays() {
   text_display = createDiv(`
   <div id="text_title" style="font-size: 56px; font-weight: bold; margin-bottom: 6px;"></div>
-  <div id="text_body" style="font-size: 30px;"></div>
+  <div id="text_body" style="font-size: 32px;"></div>
 `);
 
   text_display.hide();
@@ -123,9 +124,22 @@ function setup_text_displays() {
   text_display.style("text-shadow", "0px 2px 3px rgba(0,0,0,0.6)");
 }
 
-function mousePressed() {
+
+
+//------------DEV STUFF ---------------------------
+
+function mousePressedDev() {
   if (devMode) {
     console. log("mouseX: "+(mouseX/render_scale))
     console. log("mouseY: "+(mouseY/render_scale))
+    dump_data()
   }
 }
+
+function dump_data() {
+  console.log({
+    date: Date.now(),
+    data: data
+  })
+}
+
