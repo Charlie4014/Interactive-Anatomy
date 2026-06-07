@@ -1,7 +1,7 @@
 //
 //
 
-const version = "pre6";
+const version = "pre7";
 const devMode = true;
 const pageID = "axial_skeleton1";
 
